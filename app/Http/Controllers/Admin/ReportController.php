@@ -71,6 +71,7 @@ class ReportController extends Controller
             }
             if ($location_status != "") {
                 $search[] = array('location_status', $location_status);
+                $search[] = array('resigned', '0');
             }
             if ($assign_reasons_id != "") {
                 $search[] = array('assign_reasons_id', $assign_reasons_id);
@@ -99,6 +100,7 @@ class ReportController extends Controller
             if ($user->toarray()['user_type'] != "Admin") {
                 $search[] = array('user_id', $user->id);
             }
+                $search[] = array('assign_reasons_id', '!=',0);
             //$search[] = array('status', 1);
             $records = StockAssignToEmployee::select('*')->where($search)->with('invetnory')
                 ->groupBy('stock_assign_to_employees.inventory_id')

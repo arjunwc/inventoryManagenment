@@ -23,7 +23,7 @@ class EmployeeController extends Controller
         $user = Auth::user();
         if ($user) {
             $records = Empolyee::select('*')->where(['status' => 'Active', 'user_id' => $user->id])
-                ->orderBy('created_at', 'desc')
+                ->orderBy('emp_code', 'ASC')
                 ->get();
 
             if ($records->count()) {

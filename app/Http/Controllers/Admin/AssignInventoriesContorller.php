@@ -34,6 +34,7 @@ class AssignInventoriesContorller extends Controller
             $page_limit = $_GET['per-page'];
             $search[]   = array('user_id', $user->id);
             $search[]   = array('assign_reasons_id', $assign_reason_id);
+            $search[]   = array('resigned','0');
 
             $html    = "";
             $records = StockAssignToEmployee::where($search)->with('invetnory', 'invetnory.category', 'invetnory.warehouse', 'invetnory.store', 'invetnory.loca')->orderBy('id', 'DESC')

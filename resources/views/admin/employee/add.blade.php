@@ -46,13 +46,13 @@
                         <div class="col-sm-9">
                            <select class="select2 form-control" name="department">
                               <option value="" selected="">Please Select Primary Company</option>
-                              <option value="accounts" <?php if(isset($record->department) && $record->department=="accounts"){ echo "selected";} ?>>Accounts</option>
-                              <option value="admin" <?php if(isset($record->department) && $record->department=="admin"){ echo "selected";} ?>>Admin</option>
-                              <option value="digital_media_and_marketing" <?php if(isset($record->department) && $record->department=="digital_media_and_marketing"){ echo "selected";} ?>>Digital Media &amp; Marketing</option>
-                              <option value="engineering_technology" <?php if(isset($record->department) && $record->department=="engineering_technology"){ echo "selected";} ?>>Engineering &amp; Technology</option>
-                              <option value="marcomm" <?php if(isset($record->department) && $record->department=="marcomm"){ echo "selected";} ?>>MarComm</option>
-                              <option value="marketing" <?php if(isset($record->department) && $record->department=="marketing"){ echo "selected";} ?>>Marketing</option>
-                              <option value="seo" <?php if(isset($record->department) && $record->department=="seo"){ echo "selected";} ?>>SEO</option>
+                              <option value="Accounts" <?php if(isset($record->department) && $record->department=="Accounts"){ echo "selected";} ?>>Accounts</option>
+                              <option value="Admin" <?php if(isset($record->department) && $record->department=="Admin"){ echo "selected";} ?>>Admin</option>
+                              <option value="Digital Media & Marketing" <?php if(isset($record->department) && $record->department=="Digital Media & Marketing"){ echo "selected";} ?>>Digital Media &amp; Marketing</option>
+                              <option value="Engineering & Technology" <?php if(isset($record->department) && $record->department=="Engineering & Technology"){ echo "selected";} ?>>Engineering &amp; Technology</option>
+                              <option value="MarComm" <?php if(isset($record->department) && $record->department=="MarComm"){ echo "selected";} ?>>MarComm</option>
+                              <option value="Marketing" <?php if(isset($record->department) && $record->department=="Marketing"){ echo "selected";} ?>>Marketing</option>
+                              <option value="SEO" <?php if(isset($record->department) && $record->department=="SEO"){ echo "selected";} ?>>SEO</option>
                            </select>
                         </div>
                      </div>

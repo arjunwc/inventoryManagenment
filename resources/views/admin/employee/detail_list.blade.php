@@ -18,20 +18,19 @@ $class = "primary";
 	
 	<td><?php echo ucfirst($value->invetnory->vendor) ?></td>
 	<td>
-	<?php if($value->image!=""){ ?>
+	<?php if($value->invetnory->image!=""){ ?>
 		<img src="{{ asset('stock/'.$value->invetnory->image) }}" height="50">
 	<?php } else{ echo "-";} ?>
 		
 	</td>
 		<td>
-	<?php if($value->invoice!=""){ ?>
+	<?php if($value->invetnory->invoice!=""){ ?>
 		<a href="{{ asset('stock/'.$value->invetnory->invoice) }}" target="_blank">Invoice</a>
 	<?php } else{ echo "-";} ?>
 		
 	</td>
 
 	<td><?php echo ucfirst($value->invetnory->description) ?></td>
-	<td><?php echo ucfirst($value->invetnory->price) ?></td>
 	<td><?php echo ucfirst($value->invetnory->qr_code) ?></td>
 	<td><?php $record = get_warehouse_by_id($value->invetnory->warehouse_id);  if($record){ echo $record->title;  }else{ echo "-";} ?></td>
 	<td><?php echo ucfirst($value->location_status) ?></td>

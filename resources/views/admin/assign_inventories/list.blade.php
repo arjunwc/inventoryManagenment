@@ -31,7 +31,6 @@ $class = "primary";
 	</td>
 
 	<td><?php echo ucfirst($value->invetnory->description) ?></td>
-	<td><?php echo ucfirst($value->invetnory->price) ?></td>
 	<td><?php echo ucfirst($value->invetnory->qr_code) ?></td>
 	<td><?php echo ucfirst($value->invetnory->warehouse->title) ?></td>
 	<td>

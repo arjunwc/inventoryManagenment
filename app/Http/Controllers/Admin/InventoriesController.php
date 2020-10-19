@@ -351,7 +351,8 @@ class InventoriesController extends Controller
             $validator = Validator::make($request->all(), $validation_array);
             if (!$validator->fails()) {
                 unset($update['_token']);
-                $sub_sub_cat = $update['sub_sub_cat'];
+                if(isset($update['sub_sub_cat']))
+                    $sub_sub_cat = $update['sub_sub_cat'];
                 unset($update['sub_sub_cat']);
                 if ($update['image'] != "") {
                     $imageName = time() . '.' . $request->image->extension();
@@ -376,6 +377,7 @@ class InventoriesController extends Controller
                     if (isset($sub_sub_cat) && count($sub_sub_cat)) {
                         $affectedRows = Inventory_items::where('inventory_id', $update['id'])->delete();
                         if ($affectedRows) {
+
                             foreach ($sub_sub_cat as $value) {
 
                                 $add_items                        = array();

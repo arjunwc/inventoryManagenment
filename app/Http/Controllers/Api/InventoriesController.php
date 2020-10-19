@@ -311,7 +311,7 @@ class InventoriesController extends Controller
                         'employee_id'       => 'required',
                         'location_status'   => 'required',
                         'assign_reasons_id' => 'required',
-                        'date' => 'required',
+                        'date'              => 'required',
                     ]);
                 if (!$validator->fails()) {
                     $input        = $request->all();
@@ -396,6 +396,7 @@ class InventoriesController extends Controller
             }
             if ($assign_reasons_id != "") {
                 $search[] = array('assign_reasons_id', $assign_reasons_id);
+                 $search[] = array('resigned', '0');
             }
             if ($start_date != "") {
                 $search[] = array('created_at', '>=', $start_date . ' 00:00:00');
@@ -414,7 +415,7 @@ class InventoriesController extends Controller
                 $search[] = array('location', $location);
             }
             $search[] = array('user_id', $user->id);
-            $search[] = array('assign_reasons_id', '!=' ,0);
+            $search[] = array('assign_reasons_id', '!=', 0);
 
             $records = StockAssignToEmployee::select('*')->where($search)->with('invetnory')
                 ->groupBy('stock_assign_to_employees.inventory_id')
@@ -547,7 +548,11 @@ class InventoriesController extends Controller
                     $input = $request->all();
 
                     $inventory_record = get_record_qr_code_by_id($input['qr_code']);
-
+                    $assing_record    = StockAssignToEmployee::where('inventory_id', $inventory_record->id)->where('employee_id', $input['employee_id'])->where('resigned', '0')->first();
+                    if ($assing_record) {
+                        $store_input['resigned'] = '1';
+                        StockAssignToEmployee::where('id', $assing_record->id)->update($store_input);
+                    }
                     $input['status']       = 1;
                     $input['user_id']      = $user->id;
                     $input['inventory_id'] = $inventory_record->id;

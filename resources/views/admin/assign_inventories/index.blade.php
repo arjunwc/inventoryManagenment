@@ -61,7 +61,6 @@
                                 <th width="auto">Image</th>
                                 <th width="auto">Invoice</th>
                                 <th width="auto">Description</th>
-                                <th width="auto">Price</th>
                                 <th width="auto">QrCode</th>
                                 <th width="auto">Venture</th>
                                 <th>Status</th>
@@ -82,7 +81,6 @@
                                 <th width="auto">Image</th>
                                 <th width="auto">Invoice</th>
                                 <th width="auto">Description</th>
-                                <th width="auto">Price</th>
                                 <th width="auto">QrCode</th>
                                 <th width="auto">Venture</th>
                                 <th>Status</th>

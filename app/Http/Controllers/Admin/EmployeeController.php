@@ -48,7 +48,7 @@ class EmployeeController extends Controller
                 $search[] = array('user_id', $user->id);
             }
             $html    = "";
-            $records = Empolyee::where($search)->orderBy('created_at', 'DESC')
+            $records = Empolyee::where($search)->orderBy('emp_code', 'ASC')
                 ->paginate($page_limit);
             $response['success']    = true;
             $response['html']       = view('admin.employee.list', ['records' => $records])->render();
